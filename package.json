@@ -1,5 +1,5 @@
 {
-  "name": "stylus-modules",
+  "name": "stylus-css-modules",
   "version": "1.0.0",
   "description": "A Stylus plugin to mangle selectors and generate selector map js",
   "main": "lib/index.js",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/manse/stylus-modules.git"
+    "url": "https://github.com/manse/stylus-css-modules.git"
   },
   "keywords": [
     "javascript",
@@ -17,9 +17,9 @@
     "mangle"
   ],
   "bugs": {
-    "url": "https://github.com/manse/stylus-modules/issues"
+    "url": "https://github.com/manse/stylus-css-modules/issues"
   },
-  "homepage": "https://github.com/manse/stylus-modules",
+  "homepage": "https://github.com/manse/stylus-css-modules",
   "dependencies": {
     "colors": "^1.1.2",
     "css": "^2.2.1",
