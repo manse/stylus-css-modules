@@ -114,8 +114,8 @@ button.className = Button.blue; // '_a'
 
 ## hyperscript
 
-in [hyperscript](https://github.com/hyperhype/hyperscript), class name must be specified in `.query.string.format`.
-`queryString` option is set to true, `.` is prepended to the mangled selector name.
+in [hyperscript](https://github.com/hyperhype/hyperscript), class name must be specified in `.query.selector.format`.
+`querySelector` option is set to true, `.` is prepended to the mangled selector name.
 
 **Button.ts**
 ```ts
