@@ -35,6 +35,6 @@
   },
   "scripts": {
     "test": "jest",
-    "sample": "stylus --use ./lib/index --with \"{dest:'./sample/dest/script', target: 'ts', querySelector: true}\" -w sample/src/Main.styl -o sample/dest/main.css"
+    "sample": "stylus --use ./lib/index --with \"{dest:'./sample/dest/script', target: 'ts'}\" sample/src/Main.styl -o sample/dest/main.css"
   }
 }
