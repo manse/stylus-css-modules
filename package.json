@@ -21,8 +21,11 @@
   },
   "homepage": "https://github.com/manse/stylus-modules",
   "dependencies": {
+    "colors": "^1.1.2",
     "css": "^2.2.1",
-    "source-map": "^0.5.6"
+    "mkdirp": "^0.5.1",
+    "source-map": "^0.5.6",
+    "source-map-resolve": "^0.5.0"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
@@ -32,6 +35,6 @@
   },
   "scripts": {
     "test": "jest",
-    "debug": "node ./debug"
+    "sample": "stylus --use ./lib/index --with \"{dest:'./sample/dest/script', target: 'ts', querySelector: true}\" -w sample/src/Main.styl -o sample/dest/main.css"
   }
 }
