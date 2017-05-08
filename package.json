@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/manse/stylus-css-modules",
   "dependencies": {
+    "camelcase": "^4.1.0",
     "colors": "^1.1.2",
     "css": "^2.2.1",
     "mkdirp": "^0.5.1",
