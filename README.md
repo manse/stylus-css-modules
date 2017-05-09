@@ -63,27 +63,39 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
     @extends .common
     background #0f0
     color white
+
+.red:global
+    @extends .common
+    background #f00
+    color white
+
 ```
 
 ### Output
 
 **main.css**
 ```css
-._d {
+._e {
   text-align: center;
 }
-._c {
+._d {
   color: #888;
 }
-._b,._a {
+._c,._b,.red {
   background: #ccc;
   padding: 10px;
 }
-._a {
+._b {
   background: #0f0;
   color: #fff;
 }
-```
+.red {
+  background: #f00;
+  color: #fff;
+}
+._a {
+  color: #008000;
+}```
 
 **Main.ts**
 ```ts
