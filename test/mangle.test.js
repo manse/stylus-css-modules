@@ -1,6 +1,7 @@
 var mangle = require('../lib/mangle');
 var string = require('../lib/string');
 var cssmin = require('cssmin');
+var cssbeautify = require('cssbeautify');
 
 var fs = require('fs');
 
@@ -13,7 +14,7 @@ test('mangle', function() {
         }
     });
 
-    expect(cssmin(man.css)).not.toBe(cssmin(css));
+    expect(cssbeautify(cssmin(man.css))).not.toBe(cssbeautify(cssmin(css)));
 
     for (var i in man.map) {
         for (var j in man.map[i]) {
@@ -21,6 +22,6 @@ test('mangle', function() {
         }
     }
 
-    expect(cssmin(man.css)).toBe(cssmin(css));
+    expect(cssbeautify(cssmin(man.css))).toBe(cssbeautify(cssmin(css)));
 });
 

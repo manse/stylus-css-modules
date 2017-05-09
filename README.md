@@ -32,6 +32,11 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
 
   querySelector: false,
   // boolean, if true, prepend '.' to selector (default: false)
+
+  camelCase: false,
+  // boolean, convert selector name to camelCase (default: false)
+  //   false: `.text-center {}` => `{"text-center": "_a"}`
+  //   true:  `.text-center {}` => `{"textCenter": "_a"}`
 }
 
 ```
