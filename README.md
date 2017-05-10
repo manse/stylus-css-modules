@@ -100,7 +100,8 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
 }
 ._a {
   color: #008000;
-}```
+}
+```
 
 **Main.ts**
 ```ts
