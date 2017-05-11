@@ -47,87 +47,117 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
 
 ### Input
 
-**Main.styl**
+**main.styl**
 ```styl
-.textCenter
+.text-center
     text-align center
 
-.textMuted
+.text-muted
     color #888
 
-@import "Button.styl";
+@import "mixin.styl"
+@import "button.styl";
+@import "../traversal.styl";
 ```
 
-**Button.styl**
+**button.styl**
 ```styl
 .common
     background #ccc
     padding 10px
 
 .blue
-    @extends .common
+    finger()
     background #0f0
     color white
 
 .red:global
-    @extends .common
+    finger()
     background #f00
     color white
+```
 
+**mixin.styl**
+```styl
+finger()
+    position relative
+
+    &:after
+        content '👆'
+        display inline
+        left 0
+        bottom -20px
+        position absolute
 ```
 
 ### Output
 
 **main.css**
 ```css
-._e {
+._a {
   text-align: center;
 }
-._d {
+._b {
   color: #888;
 }
-._c,._b,.red {
+._c {
   background: #ccc;
   padding: 10px;
 }
-._b {
+._d {
+  position: relative;
   background: #0f0;
   color: #fff;
 }
+._d:after {
+  content: '👆';
+  display: inline;
+  left: 0;
+  bottom: -20px;
+  position: absolute;
+}
 .red {
+  position: relative;
   background: #f00;
   color: #fff;
 }
-._a {
+.red:after {
+  content: '👆';
+  display: inline;
+  left: 0;
+  bottom: -20px;
+  position: absolute;
+}
+._e {
   color: #008000;
 }
 ```
 
 **Main.ts**
 ```ts
-const Main = {
-    "textMuted": "_c",
-    "textCenter": "_d"
+const main = {
+    "textCenter": "_a",
+    "textMuted": "_b"
 };
-export {Main};
+export {main};
 ```
 
 **Button.ts**
 ```ts
-const Button = {
-    "blue": "_a",
-    "common": "_b"
+const button = {
+    "common": "_c",
+    "blue": "_d"
 };
-export {Button};
+export {button};
 ```
 
 You can obtain the style refer to selector map js. Example below:
 
 ```ts
-import {Button} from './Button';
+import {button} from './button';
 
-const button = document.createElement('button');
-button.className = Button.blue; // '_a'
+const elem = document.createElement('button');
+elem.className = button.blue; // '_a'
 ```
 
 ## hyperscript
@@ -137,24 +167,24 @@ in [hyperscript](https://github.com/hyperhype/hyperscript), class name must be s
 
 **Button.ts**
 ```ts
-const Button = {
-    "blue": "._a",
-    "common": "._b"
+const button = {
+    "common": "._c",
+    "blue": "._d"
 };
-export {Button};
+export {button};
 ```
 
 ```ts
-import {Button} from './Button';
+import {button} from './button';
 
 div('.container', [
     div('.row', [
-        div(`.col-xs-3${Button.blue}`, [ 'Hello' ]); // '.col-xs-3._a'
+        div(`.col-xs-3${button.blue}`, [ 'Hello' ]); // '.col-xs-3._d'
     ])
 ])
 ```
 
 ## Notes
 
-- `stylus-css-modules` cannot solve `@extend` and `@mixin` mappings between different .styl files. Please be careful or
+- `stylus-css-modules` cannot solve `@extend` mappings between different .styl files. Please be careful or
 someone please make something better.
