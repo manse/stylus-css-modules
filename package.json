@@ -1,6 +1,6 @@
 {
   "name": "stylus-css-modules",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "A Stylus plugin to mangle selectors and generate selector map js",
   "main": "lib/index.js",
   "author": "manse",
@@ -24,6 +24,7 @@
     "camelcase": "^4.1.0",
     "colors": "^1.1.2",
     "css": "^2.2.1",
+    "md5": "^2.2.1",
     "mkdirp": "^0.5.1",
     "source-map": "^0.5.6",
     "source-map-resolve": "^0.5.0"
