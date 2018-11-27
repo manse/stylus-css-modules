@@ -25,7 +25,7 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
   // string, base path for selector map script (default: same dir as the input .styl)
 
   target: 'ts',
-  // string, export format. 'ts' or 'js' (default: 'js')
+  // string, export format. 'ts' or 'js' (default: 'js'), can also be a function that receives the filename and selector map as params
 
   indent: 4,
   // number, indent level (default: 4)
@@ -40,6 +40,24 @@ stylus --use stylus-css-modules --with "{dest:'./dest/script', target: 'ts'}" -w
 }
 
 ```
+
+#### Defining a custom target
+
+If you need more control over the output, you can specify a `target` function like so:
+
+```js
+{
+    target(filename, selectorMap) {
+        // filename: /path/to/file.styl
+        // selectorMap: {
+        //   'file.styl': {
+        //      foo: '_123456789'
+        //    }
+        // }
+    }
+}
+```
+
 
 ## Result
 
